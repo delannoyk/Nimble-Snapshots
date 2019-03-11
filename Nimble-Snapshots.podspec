@@ -15,6 +15,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => "https://github.com/ashfurrow/Nimble-Snapshots.git", :tag => s.version }
   s.default_subspec = "Core"
   s.frameworks  = "Foundation", "XCTest", "UIKit"
+  s.swift_version = '4.2'
 
   s.subspec "Core" do |ss|
     ss.source_files  = "Nimble_Snapshots/*.{h,m,swift}",
