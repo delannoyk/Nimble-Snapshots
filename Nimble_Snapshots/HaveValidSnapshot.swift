@@ -35,7 +35,7 @@ public class FBSnapshotTest: NSObject {
     }
 
     // swiftlint:disable:next function_parameter_count
-    class func compareSnapshot(_ instance: Snapshotable,
+    public class func compareSnapshot(_ instance: Snapshotable,
                                isDeviceAgnostic: Bool = false,
                                usesDrawRect: Bool = false,
                                snapshot: String,
@@ -110,7 +110,7 @@ public func setNimbleTolerance(_ tolerance: CGFloat) {
     FBSnapshotTest.sharedInstance.tolerance = tolerance
 }
 
-func getDefaultReferenceDirectory(_ sourceFileName: String) -> String {
+public func getDefaultReferenceDirectory(_ sourceFileName: String) -> String {
     if let globalReference = FBSnapshotTest.sharedInstance.referenceImagesDirectory {
         return globalReference
     }
@@ -162,7 +162,7 @@ private func parseFilename(filename: String) -> String {
     return sanitizedName
 }
 
-func sanitizedTestName(_ name: String?) -> String {
+public func sanitizedTestName(_ name: String?) -> String {
 	guard let testName = currentTestName() else {
 		fatalError("Test matchers must be called from inside a test block")
 	}
@@ -174,11 +174,11 @@ func sanitizedTestName(_ name: String?) -> String {
     return components.joined(separator: "_")
 }
 
-func getTolerance() -> CGFloat {
+public func getTolerance() -> CGFloat {
     return FBSnapshotTest.sharedInstance.tolerance
 }
 
-func clearFailureMessage(_ failureMessage: FailureMessage) {
+public func clearFailureMessage(_ failureMessage: FailureMessage) {
     failureMessage.actualValue = nil
     failureMessage.expected = ""
     failureMessage.postfixMessage = ""
